@@ -38,9 +38,19 @@ Don't know. I use [Regolith](https://regolith-linux.org/). It comes with i3 alre
 
 ## Install my configs
 
-`cp ./i3/config /etc/i3/config`
+`cp ./i3/config .config/regolith/i3/config`
 
-# Polybar
+## Install my i3xrocks and blocks
+
+```sh
+cp ./i3xrocks/config .config/regolith/i3xrocks/config       
+cp ./i3xrocks/Xresources-i3xrocks ~/.Xresources-i3xrocks      
+sudo cp ./i3xrocks/Xresources-regolith ~/.Xresources-regolith   
+sudo cp -R ./i3xrocks/blocks /usr/share/i3xrocks
+```
+
+
+# Polybar (not used)
 
 ## Install [Polybar](https://github.com/polybar)
 
@@ -56,7 +66,7 @@ sudo ./build.sh
 
 ```sh
 sudo chown -R $USER:$USER ~/.config/polybar && wget https://gitlab.com/terminalroot/popy/raw/master/launch.sh -O ~/.config/polybar/launch.sh && chmod +x ~/.config/polybar/launch.sh && echo -e 'for_window [class="^.*"] border pixel 0\ngaps inner 10\ngaps outer 2\nexec_always --no-startup-id $HOME/.config/polybar/launch.sh' >> ~/.config/i3/config
-```
+``
 
 ## Install my theme
 
