@@ -11,6 +11,6 @@
 ! These files map values defined above into specific app settings.
 #include "/etc/regolith/styles/st-term"
 #include "/etc/regolith/styles/i3-wm"
-#include "/home/gasp/.Xresources-i3rocks"
+#include "/home/gasp/.Xresources-i3xrocks"
 #include "/etc/regolith/styles/rofi"
 #include "/etc/regolith/styles/gnome"
