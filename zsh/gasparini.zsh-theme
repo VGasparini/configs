@@ -9,8 +9,10 @@ ips = []
 
 for ifaceName in interfaces():
     addresses = [i['addr'] for i in ifaddresses(ifaceName).setdefault(AF_INET, [{'addr':'nope'}] )]
-    if (addresses[0] != 'nope' and addresses[0] != '127.0.0.1'):
-        ips.extend(addresses)
+    if (addresses[0] != 'nope' and not '127' in addresses[0]):
+        for adds in addresses:
+            if not '172' in adds:
+                ips.append(adds)
 
 sys.stdout.write(', '.join(ips))"
 

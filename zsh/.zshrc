@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/gasp/.oh-my-zsh"
@@ -68,8 +68,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-plugins=(zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting colorize cp bgnotify zsh-wakatime autoswitch_virtualenv pyenv $plugins)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="nano ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ohmyzsh="nano ~/.oh-my-zsh"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -105,11 +104,45 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # PYENV
-export PATH="/home/gasp/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
+
 
 # RBENV
 export PATH="/home/gasp/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# JENV
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# Poetry
+export PATH="/home/gasp/.poetry/bin:$PATH"
+
+source $HOME/.zsh-background-notify/bgnotify.plugin.zsh
+alias portalize='make_portal(){ echo alias $1=$PWD >> ~/.zshrc; unset -f make_portal; source ~/.zshrc }; make_portal'
+alias unportalize='destroy_portal(){ printf "%s\n" "g/alias $1=/d" w | ed -s ~/.zshrc; unalias $1; unset -f destroy_portal; source ~/.zshrc }; destroy_portal'
+alias portalize='make_portal(){ echo alias $1=$PWD >> ~/.zshrc; unset -f make_portal; source ~/.zshrc }; make_portal'
+alias unportalize='destroy_portal(){ printf "%s\n" "g/alias $1=/d" w | ed -s ~/.zshrc; unalias $1; unset -f destroy_portal; source ~/.zshrc }; destroy_portal'
+alias agriness-app=/home/gasp/Workspace/mlabs/365-agriness-corp-app
+alias agriness-server=/home/gasp/Workspace/mlabs/365-corp-server
+alias agriness-ui=/home/gasp/Workspace/mlabs/365-agriness-ui
+
+export WORKON_HOME=~/.virtualenvs
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/gasp/.sdkman"
+[[ -s "/home/gasp/.sdkman/bin/sdkman-init.sh" ]] && source "/home/gasp/.sdkman/bin/sdkman-init.sh"
+
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/gasp/google-cloud-sdk/path.zsh.inc' ]; then . '/home/gasp/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/gasp/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/gasp/google-cloud-sdk/completion.zsh.inc'; fi
