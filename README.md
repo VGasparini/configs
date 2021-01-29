@@ -43,12 +43,11 @@ Don't know. I use [Regolith](https://regolith-linux.org/). It comes with i3 alre
 ## Install my i3xrocks and blocks
 
 ```sh
-cp ./i3xrocks/config .config/regolith/i3xrocks/config       
-cp ./i3xrocks/Xresources-i3xrocks ~/.Xresources-i3xrocks      
-sudo cp ./i3xrocks/Xresources-regolith ~/.Xresources-regolith   
-sudo cp -R ./i3xrocks/i3xrocks /usr/share/i3xrocks
+cp i3xrocks/config ~/.config/regolith/i3xrocks/config       
+cp i3xrocks/Xresources-i3xrocks ~/.Xresources-i3xrocks      
+sudo cp i3xrocks/Xresources-regolith ~/.Xresources-regolith   
+sudo cp -R i3xrocks/i3xrocks /usr/share/i3xrocks
+sudo chmod -R 777 /usr/share/i3xrocks
+cp -R i3xrocks/scripts ~/.config/i3blocks/scripts
+sudo chmod -R 777 ~/.config/i3blocks/scripts
 ```
-
-## Install my theme
-
-TODD

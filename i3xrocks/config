@@ -22,16 +22,19 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/share/i3xrocks/$BLOCK_NAME
+command=/usr/share/i3xrocks/blocks/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 color=xresource:i3xrocks.value.color
 label_color=xresource:i3xrocks.label.color
 
 # Mediaplayer
-[mediaplayer2]
+[spotify]
+command=~/.config/i3blocks/scripts/spotify
 interval=5
-signal=10
+
+[separator]
+interval=once
 
 # Volume
 [volume]
@@ -42,7 +45,7 @@ STEP=5%
 # Sep
 [separator]
 interval=once
-# '|' is default separator, uncomment and change symbol
+# | is default separator, uncomment and change symbol
 # SEP=|
 
 # Link to execute shortcuts.
@@ -66,19 +69,20 @@ interval=once
 instance=wlp3s0 
 interval=30
 
-[separator]
-interval=once
 # nettraffic
 #
 # Displays network load
-#[nettraffic]
-#interval=10
+[nettraffic]
+interval=10
 
 # Keyboard layout
 #
 # Displays current keyboard layout.
 #[keyboard_layout]
 #interval=persist
+
+[separator]
+interval=once
 
 # CPU usage
 #
@@ -91,6 +95,9 @@ min_width=100%
 # Memory
 [memory]
 interval=10
+
+[separator]
+interval=once
 
 # Battery indicator
 #
@@ -111,7 +118,7 @@ interval=once
 
 # Date Time
 [time]
-interval=10
+interval=5
 
 # Show title of focused window
 #[focused-window-name]
